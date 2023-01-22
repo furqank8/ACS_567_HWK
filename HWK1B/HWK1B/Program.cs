@@ -12,8 +12,6 @@ class Program
     // specify file path
     public static string filePath = "..\\..\\..\\spm1.csv";
     
-
-   
     static void Main(string[] args)
     {
 
