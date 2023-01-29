@@ -13,7 +13,6 @@ class Program
     public static string filePath = "..\\..\\..\\spm1.csv";
     
 
-   
     static void Main(string[] args)
     {
 

@@ -1,0 +1,29 @@
+﻿c.1. What are the benefits to use Scrum?
+
+Ans: Scrum is widely used in Project Management. 
+The Scrum framework is fairly simple being made up of a Scrum Team consisting of a Product Owner, 
+a Scrum Master and Developers, each of which have specific accountabilities.
+
+Some of the benefits of using Scrum are:
+->Better Product Quality
+
+->Faster ROI
+
+->More Control
+
+->Reduced Risk
+
+->Improved Customer Satisfaction
+
+->Quicker release of useable product to users and customers.
+
+->Higher productivity.
+
+
+c.2.According to Cynefin framework, what are five problem domains? Which problem domain(s) is Scrum particularly well suited for?
+
+
+Ans: Simple, Complicated, Complex, Chaotic, and Disorder are the five problem domains identified by the Cynefin framework.
+
+Since Scrum is an iterative, incremental framework that allows teams to experiment and change as they move toward a solution, it is especially well suited for Complex and Complicated challenges. 
+Additionally, it enables a flexible attitude to change, which is crucial when tackling difficult issues.
