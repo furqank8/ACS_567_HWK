@@ -10,11 +10,19 @@ namespace HWK4.Controllers
     public class BillsController : ControllerBase //Defining the BillsController class which inherits from ControllerBase
     {
 
+        [Route("[controller]")]
+
+        public class BillsController : ControllerBase
+        {
+
             private readonly ILogger<BillsController> _logger;
             private readonly IBillsRepository _billsRepository;
 
             public BillsController(ILogger<BillsController> logger, IBillsRepository billsRepository) //// Defining the constructor for the class and injecting dependencies
         {
+            public BillsController(ILogger<BillsController> logger, IBillsRepository billsRepository)
+            {
+
                 _logger = logger;
                 _billsRepository = billsRepository;
             }
@@ -106,6 +114,7 @@ namespace HWK4.Controllers
                     return Ok("Successfully updated");
                 }
             } /// <summary>
+
               /// This is a Put request to update the expense
               /// </summary>
               /// 
@@ -115,6 +124,9 @@ namespace HWK4.Controllers
         /// Delete request for removing an entry.
         /// </summary>
 
+            /// This is a Put request to update the expense
+            /// </summary>
+                   
             [HttpDelete]
             public IActionResult DeleteBill([FromBody] Bills bill)
             {
@@ -134,11 +146,19 @@ namespace HWK4.Controllers
         /// //This is a get request to Analyse mean, median and mode.
         /// </summary>
         /// <returns></returns>
+        
+            } /// <summary>
+              /// Delete request for removing an entry.
+              /// </summary>
+
             [HttpGet("Analyse")]
             public IActionResult Analyse()
             {
                 return Ok(_billsRepository.analyzeBill());
+
             } 
+
+            } //This is a get request to Analyse mean, median and mode.
 
 
 

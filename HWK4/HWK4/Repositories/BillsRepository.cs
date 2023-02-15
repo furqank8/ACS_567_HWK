@@ -24,6 +24,7 @@ namespace HWK4.Repositories
             return _context.bill.ToList();
         }
 
+
         /// <summary>
         ///  returns a bill object for that month.
         /// </summary>
@@ -34,33 +35,35 @@ namespace HWK4.Repositories
         {
             return _context.bill.Where(bills => bills.Month == month).FirstOrDefault();
         }
-
         /// <summary>
         /// returns a boolean value indicating whether a bill exists for that month or not
         /// </summary>
         /// <param name="Month"></param>
         /// <returns></returns>
+
         public bool BillsExists(String month)
         {
             return _context.bill.Any(bill => bill.Month == month);
         }
-
         /// <summary>
         /// creates a new bill in the repository.
         /// </summary>
         /// <param name="bill"></param>
         /// <returns></returns>
+
         public bool CreateBills(Bills bill)
         {
             _context.Add(bill);
             return Save();
         }
 
+
         /// <summary>
         /// updates the corresponding bill in the repository.
         /// </summary>
         /// <param name="bill"></param>
         /// <returns></returns>
+
         public bool UpdateBills(Bills bill)
         {
             _context.Update(bill);
@@ -77,10 +80,15 @@ namespace HWK4.Repositories
         {
             _context.Remove(bill);
             return Save();
-        }
+           }
+        
 
         /// <summary>
         /// It provides the analysis data, mean , median , max and min
+
+        }/// <summary>
+        /// Delete bill
+
         /// </summary>
         /// <returns></returns>
 
@@ -118,6 +126,12 @@ namespace HWK4.Repositories
         /// saves any changes made to the bills repository.
         /// </summary>
         /// <returns></returns>
+
+        } /// <summary>
+        /// It provides the analysis data, mean , median , max and min
+        /// </summary>
+        /// <returns></returns>
+
         public bool Save()
         {
             int saved = _context.SaveChanges();

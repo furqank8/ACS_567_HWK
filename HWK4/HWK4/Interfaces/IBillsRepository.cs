@@ -58,6 +58,16 @@ namespace HWK4.Interfaces
         /// saves any changes made to the bills repository.
         /// </summary>
         /// <returns></returns>
+
+
+        ICollection<Bills> GetBills();
+
+        Bills GetBill(string Month);
+        bool BillsExists(string Month);
+        bool CreateBills(Bills bill);
+        bool UpdateBills(Bills bill);
+        bool DeleteBills(Bills bill);
+        Dictionary<string, dynamic> analyzeBill();
         bool Save();
     }
 }
