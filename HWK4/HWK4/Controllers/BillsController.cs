@@ -5,16 +5,16 @@ using Microsoft.AspNetCore.Mvc;
 namespace HWK4.Controllers
 {
         [ApiController]
-        [Route("[controller]")]
+        [Route("[controller]")] // // Defining the route for the controller
 
-        public class BillsController : ControllerBase
-        {
+    public class BillsController : ControllerBase //Defining the BillsController class which inherits from ControllerBase
+    {
 
             private readonly ILogger<BillsController> _logger;
             private readonly IBillsRepository _billsRepository;
 
-            public BillsController(ILogger<BillsController> logger, IBillsRepository billsRepository)
-            {
+            public BillsController(ILogger<BillsController> logger, IBillsRepository billsRepository) //// Defining the constructor for the class and injecting dependencies
+        {
                 _logger = logger;
                 _billsRepository = billsRepository;
             }
@@ -106,9 +106,15 @@ namespace HWK4.Controllers
                     return Ok("Successfully updated");
                 }
             } /// <summary>
-            /// This is a Put request to update the expense
-            /// </summary>
-                   
+              /// This is a Put request to update the expense
+              /// </summary>
+              /// 
+
+
+        /// <summary>
+        /// Delete request for removing an entry.
+        /// </summary>
+
             [HttpDelete]
             public IActionResult DeleteBill([FromBody] Bills bill)
             {
@@ -121,14 +127,18 @@ namespace HWK4.Controllers
                 {
                     return Ok("Bill deleted");
                 }
-            } /// <summary>
-              /// Delete request for removing an entry.
-              /// </summary>
+            }
+
+
+        /// <summary>
+        /// //This is a get request to Analyse mean, median and mode.
+        /// </summary>
+        /// <returns></returns>
             [HttpGet("Analyse")]
             public IActionResult Analyse()
             {
                 return Ok(_billsRepository.analyzeBill());
-            } //This is a get request to Analyse mean, median and mode.
+            } 
 
 
 
