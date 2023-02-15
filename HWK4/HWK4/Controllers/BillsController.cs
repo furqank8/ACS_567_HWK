@@ -5,6 +5,11 @@ using Microsoft.AspNetCore.Mvc;
 namespace HWK4.Controllers
 {
         [ApiController]
+        [Route("[controller]")] // // Defining the route for the controller
+
+    public class BillsController : ControllerBase //Defining the BillsController class which inherits from ControllerBase
+    {
+
         [Route("[controller]")]
 
         public class BillsController : ControllerBase
@@ -13,8 +18,11 @@ namespace HWK4.Controllers
             private readonly ILogger<BillsController> _logger;
             private readonly IBillsRepository _billsRepository;
 
+            public BillsController(ILogger<BillsController> logger, IBillsRepository billsRepository) //// Defining the constructor for the class and injecting dependencies
+        {
             public BillsController(ILogger<BillsController> logger, IBillsRepository billsRepository)
             {
+
                 _logger = logger;
                 _billsRepository = billsRepository;
             }
@@ -106,6 +114,16 @@ namespace HWK4.Controllers
                     return Ok("Successfully updated");
                 }
             } /// <summary>
+
+              /// This is a Put request to update the expense
+              /// </summary>
+              /// 
+
+
+        /// <summary>
+        /// Delete request for removing an entry.
+        /// </summary>
+
             /// This is a Put request to update the expense
             /// </summary>
                    
@@ -121,13 +139,25 @@ namespace HWK4.Controllers
                 {
                     return Ok("Bill deleted");
                 }
+            }
+
+
+        /// <summary>
+        /// //This is a get request to Analyse mean, median and mode.
+        /// </summary>
+        /// <returns></returns>
+        
             } /// <summary>
               /// Delete request for removing an entry.
               /// </summary>
+
             [HttpGet("Analyse")]
             public IActionResult Analyse()
             {
                 return Ok(_billsRepository.analyzeBill());
+
+            } 
+
             } //This is a get request to Analyse mean, median and mode.
 
 
