@@ -1,0 +1,38 @@
+﻿@*@page is a Razor directive that specifies the current file is a Razor Page.*@
+@page
+@model HW6.Pages.Bills.AnalyseModel
+@{
+}
+@*create a line break and a header for the page.*@
+<br>
+<h2> Analysing the Bills</h2>
+
+@*Gets all the values from the Model.dictonary*@
+<form method="GET">
+    <table>
+        <tr>
+            @*Displays mean from the dictonary *@
+            <td>Mean : @Model.dictionary["Mean"]</td>  
+
+        </tr>
+        <tr>
+            @*Displays Median from the dictonary *@
+            <td>Median : @Model.dictionary["Median"]</td>
+        </tr>
+        <tr>
+            @*Displays Max from the dictonary *@
+            <td>Max : @Model.dictionary["Max"] </td>
+            
+
+        </tr>
+        <tr>
+            @*Displays Min from the dictonary .*@
+            <td>Min : @Model.dictionary["Min"]</td>
+
+
+        </tr>
+    </table>
+    <p></p>
+
+</form>
+

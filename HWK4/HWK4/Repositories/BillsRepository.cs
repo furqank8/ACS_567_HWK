@@ -19,10 +19,17 @@ namespace HWK4.Repositories
         /// </summary>
         /// <returns></returns>
 
+
+        public ICollection<BillsModel> GetBills()
+
         public ICollection<Bills> GetBills()
+
         {
             return _context.bill.ToList();
         }
+
+
+
 
 
         /// <summary>
@@ -31,10 +38,18 @@ namespace HWK4.Repositories
         /// <param name="Month"></param>
         /// <returns></returns>
 
+
+        public BillsModel GetBill(String month)
+        {
+            return _context.bill.Where(bills => bills.Month == month).FirstOrDefault();
+        }
+
+
         public Bills GetBill(String month)
         {
             return _context.bill.Where(bills => bills.Month == month).FirstOrDefault();
         }
+
         /// <summary>
         /// returns a boolean value indicating whether a bill exists for that month or not
         /// </summary>
@@ -45,13 +60,18 @@ namespace HWK4.Repositories
         {
             return _context.bill.Any(bill => bill.Month == month);
         }
+
         /// <summary>
         /// creates a new bill in the repository.
         /// </summary>
         /// <param name="bill"></param>
         /// <returns></returns>
 
+        public bool CreateBills(BillsModel bill)
+
+
         public bool CreateBills(Bills bill)
+
         {
             _context.Add(bill);
             return Save();
@@ -64,7 +84,11 @@ namespace HWK4.Repositories
         /// <param name="bill"></param>
         /// <returns></returns>
 
+        public bool UpdateBills(BillsModel bill)
+
+
         public bool UpdateBills(Bills bill)
+
         {
             _context.Update(bill);
             return Save();
@@ -75,6 +99,21 @@ namespace HWK4.Repositories
         /// </summary>
         /// <param name="bill">Passing bill object</param>
         /// <returns></returns>
+
+
+        public bool DeleteBills(string month)
+        {
+            var items = _context.bill.Where(item=> item.Month.Trim() == month.Trim());
+            foreach (var item in items)
+            {
+                _context.Remove(item);
+
+            }
+            return Save();
+        }
+
+        /// <summary>
+        /// It provides the analysis data, mean , median , max and min
 
         public bool DeleteBills(Bills bill)
         {
@@ -88,6 +127,7 @@ namespace HWK4.Repositories
 
         }/// <summary>
         /// Delete bill
+
 
         /// </summary>
         /// <returns></returns>
@@ -127,10 +167,12 @@ namespace HWK4.Repositories
         /// </summary>
         /// <returns></returns>
 
+
         } /// <summary>
         /// It provides the analysis data, mean , median , max and min
         /// </summary>
         /// <returns></returns>
+
 
         public bool Save()
         {

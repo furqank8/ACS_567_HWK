@@ -1,0 +1,31 @@
+﻿@*@page is a Razor directive that specifies the current file is a Razor Page.*@
+@page
+@model HW6.Pages.Bills.DeleteModel
+@{
+}
+@*create a line break and a header for the page.*@
+<br>
+<h2>Delete Bill</h2>
+
+@*checks if there is an error message in the model, and if so, displays it to the user in a <div> element.*@
+@if (@Model.errorMessage.Length > 0) {
+    <div>@Model.errorMessage</div>
+}
+
+<form method="GET">
+    <input type="hidden" name="id" value="@Model.bill.Month" />
+    <table>
+        <tr>
+            <td>Month</td>
+            <td>@Model.bill.Month</td>
+        </tr>
+        <tr>
+            <td>Expense </td>
+            <td>@Model.bill.Expense</td>
+        </tr>
+    </table>
+    <p></p>
+
+    @*Submit button to submit the form*@
+    <input type="submit" value="Delete" class="btn btn-primary" />
+</form>
