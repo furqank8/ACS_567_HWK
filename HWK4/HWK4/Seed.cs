@@ -7,7 +7,7 @@ namespace HWK4
     public class Seed
     {
         private readonly DataContext dataContext;
-        private List<Bills> bill; /// <summary>
+        private List<BillsModel> bill; /// <summary>
                                   /// Creating a list called bill.
                                   /// </summary>
 
@@ -38,7 +38,7 @@ namespace HWK4
                 while ((row = file.ReadLine()) != null)
                 {
                     string[] rowItems = row.Split(",");
-                    bill.Add(new Bills(rowItems[0].ToString(), ParseInt(rowItems[1]) ?? 0));
+                    bill.Add(new BillsModel(rowItems[0].ToString(), ParseInt(rowItems[1]) ?? 0));
                     Console.WriteLine(bill);
                 }
 

@@ -1,0 +1,36 @@
+﻿@*@page is a Razor directive that specifies the current file is a Razor Page.*@
+@page
+@model HW6.Pages.Bills.CreateModel
+@{
+}
+@*create a line break and a header for the page.*@
+<br>
+<h2> Create Todo</h2>
+
+@*checks if there is an error message in the model, and if so, displays it to the user in a <div> element.*@
+    @if (@Model.errorMessage.Length > 0)
+    {
+     <div>@Model.errorMessage</div>
+    }
+    @*Lets user add month and expense value*@
+    <form method="POST">
+        <table>
+            <tr>
+                <td>Month</td>
+                <td><input type="text" name="month" value="@Model.bill.Month" ></td>
+                <td>Expense</td>
+                <td><input type="number" name="expense" value="@Model.bill.Expense"></td>
+
+            </tr>
+        </table>
+        <p></p>
+    
+        @*if its successfull, gives out a success message*@
+        @if (@Model.successMessage.Length > 0)
+        {
+            <div>@Model.successMessage</div>
+        }
+        @*Submit button to submit the form*@
+        <input type="submit" value="Add" class="btn btn-primary"/>
+    </form>
+

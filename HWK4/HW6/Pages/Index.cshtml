@@ -1,0 +1,36 @@
+﻿@*@page is a Razor directive that specifies the current file is a Razor Page.*@
+@page
+@model HW6.Pages.Bills.IndexModel
+@{
+}
+@*create a line break and a header for the page.*@
+<br>
+<h2> List of Bills </h2>
+
+<a class=" btn-outline-primary btn-sn" href="/Bills/Create"> Add New bill</a>
+<a class=" btn-outline-primary btn-sn" href="/Bills/Analyse"> Analyse</a>
+<table class="table">
+
+    <thead>
+        <tr>
+            <th>Month</th>
+            <th>Expense</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Bill)         
+        {
+            <tr>
+                <td> @item.Month</td>
+                <td> @item.Expense</td>
+
+                <td>
+                    <a class="btn btn-primary btn-sm" href="/Bills/Edit?month=@item.Month">Edit</a>
+                    <a class="btn btn-danger btn-sm" href="/Bills/Delete?month=@item.Month">Delete</a>
+
+                </td>
+            </tr>
+
+        }
+    </tbody>
+</table>

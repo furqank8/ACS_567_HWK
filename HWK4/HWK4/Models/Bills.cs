@@ -2,13 +2,13 @@
 
 namespace HWK4.Models
 {
-        public class Bills
-        {
+        public class BillsModel
+    {
             [Key] //Month is the primary key
             public string Month { get; set; }
-            public int Expense { get; set; } = 0;
+            public int Expense { get; set; }
 
-        public Bills(string month, int expense)
+        public BillsModel(string month = "", int expense=0)
             {
                 Month = month;
                 Expense = expense;

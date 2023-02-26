@@ -10,7 +10,7 @@ namespace HWK4.Data
     {
         public DataContext(DbContextOptions<DataContext> options) : base(options){ }
 
-        public DbSet<Bills> bill { get; set; }
+        public DbSet<BillsModel> bill { get; set; }
     }
     
 }

@@ -5,7 +5,8 @@ using Microsoft.AspNetCore.Mvc;
 namespace HWK4.Controllers
 {
         [ApiController]
-        [Route("[controller]")] // // Defining the route for the controller
+    [Route("[controller]")]
+    // // Defining the route for the controller
 
     public class BillsController : ControllerBase //Defining the BillsController class which inherits from ControllerBase
     {
@@ -22,8 +23,7 @@ namespace HWK4.Controllers
         /// Get all the bills present in database
         /// </summary>
         /// <returns></returns>
-            [HttpGet]
-            [ProducesResponseType(200, Type = typeof(List<Bills>))]
+            [ProducesResponseType(200, Type = typeof(List<BillsModel>))]
 
             public IActionResult GetBills()
             {
@@ -35,13 +35,13 @@ namespace HWK4.Controllers
 
 
             [HttpGet("{month}")] /// This method is a GET request that retrieves bills for a specific month
-            [ProducesResponseType(200, Type = typeof(Bills))] /// This attribute indicates that the expected response type is 200 OK and the returned data is of type Bills
+            [ProducesResponseType(200, Type = typeof(BillsModel))] /// This attribute indicates that the expected response type is 200 OK and the returned data is of type Bills
             [ProducesResponseType(404)] ///  if no bills are found for the specified month, a 404 Not Found response will be returned
             
             public IActionResult GetBill(String month)
             {
                 _logger.Log(LogLevel.Information, "Get particular Bill");
-                Bills bill = _billsRepository.GetBill(month); /// Retrieves the bill for the specified month from the repository
+            BillsModel bill = _billsRepository.GetBill(month); /// Retrieves the bill for the specified month from the repository
                 if (bill == null)
                 {
                     return NotFound();
@@ -56,11 +56,11 @@ namespace HWK4.Controllers
         /// </summary>
         /// <param name="bill">using the bill object</param>
         /// <returns></returns>
-            [HttpPost]
+            [HttpPost()]
             [ProducesResponseType(200)]
             [ProducesResponseType(400)]
 
-            public IActionResult CreateBills([FromBody] Bills bill)
+            public IActionResult CreateBills([FromBody] BillsModel bill)
             {
                 if (bill == null)
                 {
@@ -89,7 +89,7 @@ namespace HWK4.Controllers
             [ProducesResponseType(200)]
             [ProducesResponseType(404)]
 
-            public IActionResult UpdateBill([FromBody] Bills bill)
+            public IActionResult UpdateBill([FromBody] BillsModel bill)
             {
                 if (bill == null)
                 {
@@ -115,18 +115,12 @@ namespace HWK4.Controllers
         /// Delete request for removing an entry.
         /// </summary>
 
-            [HttpDelete]
-            public IActionResult DeleteBill([FromBody] Bills bill)
+            [HttpDelete("{month}")]
+            public IActionResult DeleteBill(string month)
             {
-                bool deleted = _billsRepository.DeleteBills(bill);
-                if (!deleted)
-                {
-                    return NotFound("No matching month");
-                }
-                else
-                {
-                    return Ok("Bill deleted");
-                }
+                bool isDeleted = _billsRepository.DeleteBills(month);
+
+                return isDeleted ? Ok() : BadRequest();
             }
 
 

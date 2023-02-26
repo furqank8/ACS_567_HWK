@@ -19,7 +19,7 @@ namespace HWK4.Repositories
         /// </summary>
         /// <returns></returns>
 
-        public ICollection<Bills> GetBills()
+        public ICollection<BillsModel> GetBills()
         {
             return _context.bill.ToList();
         }
@@ -30,7 +30,7 @@ namespace HWK4.Repositories
         /// <param name="Month"></param>
         /// <returns></returns>
 
-        public Bills GetBill(String month)
+        public BillsModel GetBill(String month)
         {
             return _context.bill.Where(bills => bills.Month == month).FirstOrDefault();
         }
@@ -50,7 +50,7 @@ namespace HWK4.Repositories
         /// </summary>
         /// <param name="bill"></param>
         /// <returns></returns>
-        public bool CreateBills(Bills bill)
+        public bool CreateBills(BillsModel bill)
         {
             _context.Add(bill);
             return Save();
@@ -61,7 +61,7 @@ namespace HWK4.Repositories
         /// </summary>
         /// <param name="bill"></param>
         /// <returns></returns>
-        public bool UpdateBills(Bills bill)
+        public bool UpdateBills(BillsModel bill)
         {
             _context.Update(bill);
             return Save();
@@ -73,9 +73,14 @@ namespace HWK4.Repositories
         /// <param name="bill">Passing bill object</param>
         /// <returns></returns>
 
-        public bool DeleteBills(Bills bill)
+        public bool DeleteBills(string month)
         {
-            _context.Remove(bill);
+            var items = _context.bill.Where(item=> item.Month.Trim() == month.Trim());
+            foreach (var item in items)
+            {
+                _context.Remove(item);
+
+            }
             return Save();
         }
 

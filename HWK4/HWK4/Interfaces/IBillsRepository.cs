@@ -11,14 +11,14 @@ namespace HWK4.Interfaces
         /// returns a collection of all bills
         /// </summary>
         /// <returns></returns>
-        ICollection<Bills> GetBills();
+        ICollection<BillsModel> GetBills();
 
         /// <summary>
         ///  returns a bill object for that month.
         /// </summary>
         /// <param name="Month"></param>
         /// <returns></returns>
-        Bills GetBill(string Month);
+        BillsModel GetBill(string Month);
 
         /// <summary>
         /// returns a boolean value indicating whether a bill exists for that month or not
@@ -32,21 +32,21 @@ namespace HWK4.Interfaces
         /// </summary>
         /// <param name="bill"></param>
         /// <returns></returns>
-        bool CreateBills(Bills bill);
+        bool CreateBills(BillsModel bill);
 
         /// <summary>
         /// updates the corresponding bill in the repository.
         /// </summary>
         /// <param name="bill"></param>
         /// <returns></returns>
-        bool UpdateBills(Bills bill);
+        bool UpdateBills(BillsModel bill);
 
         /// <summary>
         /// deletes the corresponding bill from the repository.
         /// </summary>
         /// <param name="bill"></param>
         /// <returns></returns>
-        bool DeleteBills(Bills bill);
+        bool DeleteBills(string month);
 
         /// <summary>
         /// returns a dictionary of string and dynamic objects with the analysis results.
