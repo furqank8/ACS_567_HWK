@@ -40,7 +40,6 @@ namespace HWK4
                 {
                     string[] rowItems = row.Split(",");
                     bill.Add(new BillsModel(rowItems[0].ToString(), ParseInt(rowItems[1]) ?? 0));
-
                     Console.WriteLine(bill);
                 }
 

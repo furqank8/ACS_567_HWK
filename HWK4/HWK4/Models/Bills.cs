@@ -10,7 +10,6 @@ namespace HWK4.Models
             public int Expense { get; set; }
 
         public BillsModel(string month = "", int expense=0)
-
             {
                 Month = month;
                 Expense = expense;

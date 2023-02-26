@@ -4,7 +4,7 @@ using HWK4.Repositories;
 using Microsoft.AspNetCore.Mvc;
 namespace HWK4.Controllers
 {
-        [ApiController]
+    [ApiController]
     [Route("[controller]")]
     // // Defining the route for the controller
 
@@ -28,7 +28,6 @@ namespace HWK4.Controllers
         /// <returns></returns>
             [ProducesResponseType(200, Type = typeof(List<BillsModel>))]
 
-
             public IActionResult GetBills()
             {
                 _logger.Log(LogLevel.Information, "Get Bills");
@@ -41,12 +40,14 @@ namespace HWK4.Controllers
             [HttpGet("{month}")] /// This method is a GET request that retrieves bills for a specific month
             [ProducesResponseType(200, Type = typeof(BillsModel))] /// This attribute indicates that the expected response type is 200 OK and the returned data is of type Bills
 
+
             [ProducesResponseType(404)] ///  if no bills are found for the specified month, a 404 Not Found response will be returned
             
             public IActionResult GetBill(String month)
             {
                 _logger.Log(LogLevel.Information, "Get particular Bill");
             BillsModel bill = _billsRepository.GetBill(month); /// Retrieves the bill for the specified month from the repository
+
 
                 if (bill == null)
                 {
@@ -99,6 +100,7 @@ namespace HWK4.Controllers
 
             public IActionResult UpdateBill([FromBody] BillsModel bill)
 
+
             {
                 if (bill == null)
                 {
@@ -145,7 +147,9 @@ namespace HWK4.Controllers
             public IActionResult Analyse()
             {
                 return Ok(_billsRepository.analyzeBill());
+
             } 
+
 
 
 

@@ -13,14 +13,12 @@ namespace HWK4.Interfaces
         /// <returns></returns>
         ICollection<BillsModel> GetBills();
 
-
         /// <summary>
         ///  returns a bill object for that month.
         /// </summary>
         /// <param name="Month"></param>
         /// <returns></returns>
         BillsModel GetBill(string Month);
-
 
         /// <summary>
         /// returns a boolean value indicating whether a bill exists for that month or not
@@ -34,15 +32,15 @@ namespace HWK4.Interfaces
         /// </summary>
         /// <param name="bill"></param>
         /// <returns></returns>
-        bool CreateBills(BillsModel bill);
-
+        bool CreateBills(BillsModel bill); 
 
         /// <summary>
         /// updates the corresponding bill in the repository.
         /// </summary>
         /// <param name="bill"></param>
         /// <returns></returns>
-        bool UpdateBills(BillsModel bill);
+       bool UpdateBills(BillsModel bill);
+
 
 
         /// <summary>
@@ -51,6 +49,7 @@ namespace HWK4.Interfaces
         /// <param name="bill"></param>
         /// <returns></returns>
         bool DeleteBills(string month);
+
 
 
         /// <summary>
@@ -63,7 +62,6 @@ namespace HWK4.Interfaces
         /// saves any changes made to the bills repository.
         /// </summary>
         /// <returns></returns>
-
         bool Save();
     }
 }

@@ -21,6 +21,7 @@ namespace HWK4.Repositories
 
         public ICollection<BillsModel> GetBills()
 
+
         {
             return _context.bill.ToList();
         }
@@ -31,6 +32,7 @@ namespace HWK4.Repositories
         /// </summary>
         /// <param name="Month"></param>
         /// <returns></returns>
+
 
         public BillsModel GetBill(String month)
         {
@@ -43,7 +45,6 @@ namespace HWK4.Repositories
         /// </summary>
         /// <param name="Month"></param>
         /// <returns></returns>
-
         public bool BillsExists(String month)
         {
             return _context.bill.Any(bill => bill.Month == month);
@@ -54,13 +55,13 @@ namespace HWK4.Repositories
         /// </summary>
         /// <param name="bill"></param>
         /// <returns></returns>
-        public bool CreateBills(BillsModel bill)
+       public bool CreateBills(BillsModel bill)
+
 
         {
             _context.Add(bill);
             return Save();
         }
-
 
         /// <summary>
         /// updates the corresponding bill in the repository.
@@ -68,6 +69,7 @@ namespace HWK4.Repositories
         /// <param name="bill"></param>
         /// <returns></returns>
         public bool UpdateBills(BillsModel bill)
+
 
         {
             _context.Update(bill);
