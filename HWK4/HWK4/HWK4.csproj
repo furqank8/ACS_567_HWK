@@ -17,13 +17,8 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-<<<<<<< HEAD
-    <PackageReference Include="Newtonsoft.Json" Version="13.0.2" />
-=======
 
     <PackageReference Include="Newtonsoft.Json" Version="13.0.2" />
-
->>>>>>> b776ae7e5ece7d902e3d1fa7bc92c408f20110c0
     <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="6.0.2" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
   </ItemGroup>
