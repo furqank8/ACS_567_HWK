@@ -19,43 +19,59 @@ namespace HWK4.Repositories
         /// </summary>
         /// <returns></returns>
 
+<<<<<<< HEAD
+        public ICollection<BillsModel> GetBills()
+=======
 
         public ICollection<BillsModel> GetBills()
 
         public ICollection<Bills> GetBills()
 
+>>>>>>> b776ae7e5ece7d902e3d1fa7bc92c408f20110c0
         {
             return _context.bill.ToList();
         }
 
+<<<<<<< HEAD
+=======
 
 
 
 
+>>>>>>> b776ae7e5ece7d902e3d1fa7bc92c408f20110c0
         /// <summary>
         ///  returns a bill object for that month.
         /// </summary>
         /// <param name="Month"></param>
         /// <returns></returns>
 
+<<<<<<< HEAD
+=======
 
+>>>>>>> b776ae7e5ece7d902e3d1fa7bc92c408f20110c0
         public BillsModel GetBill(String month)
         {
             return _context.bill.Where(bills => bills.Month == month).FirstOrDefault();
         }
 
+<<<<<<< HEAD
+=======
 
         public Bills GetBill(String month)
         {
             return _context.bill.Where(bills => bills.Month == month).FirstOrDefault();
         }
 
+>>>>>>> b776ae7e5ece7d902e3d1fa7bc92c408f20110c0
         /// <summary>
         /// returns a boolean value indicating whether a bill exists for that month or not
         /// </summary>
         /// <param name="Month"></param>
         /// <returns></returns>
+<<<<<<< HEAD
+=======
 
+>>>>>>> b776ae7e5ece7d902e3d1fa7bc92c408f20110c0
         public bool BillsExists(String month)
         {
             return _context.bill.Any(bill => bill.Month == month);
@@ -66,29 +82,40 @@ namespace HWK4.Repositories
         /// </summary>
         /// <param name="bill"></param>
         /// <returns></returns>
+<<<<<<< HEAD
+        public bool CreateBills(BillsModel bill)
+=======
 
         public bool CreateBills(BillsModel bill)
 
 
         public bool CreateBills(Bills bill)
 
+>>>>>>> b776ae7e5ece7d902e3d1fa7bc92c408f20110c0
         {
             _context.Add(bill);
             return Save();
         }
 
+<<<<<<< HEAD
+=======
 
+>>>>>>> b776ae7e5ece7d902e3d1fa7bc92c408f20110c0
         /// <summary>
         /// updates the corresponding bill in the repository.
         /// </summary>
         /// <param name="bill"></param>
         /// <returns></returns>
+<<<<<<< HEAD
+        public bool UpdateBills(BillsModel bill)
+=======
 
         public bool UpdateBills(BillsModel bill)
 
 
         public bool UpdateBills(Bills bill)
 
+>>>>>>> b776ae7e5ece7d902e3d1fa7bc92c408f20110c0
         {
             _context.Update(bill);
             return Save();
@@ -100,7 +127,10 @@ namespace HWK4.Repositories
         /// <param name="bill">Passing bill object</param>
         /// <returns></returns>
 
+<<<<<<< HEAD
+=======
 
+>>>>>>> b776ae7e5ece7d902e3d1fa7bc92c408f20110c0
         public bool DeleteBills(string month)
         {
             var items = _context.bill.Where(item=> item.Month.Trim() == month.Trim());
@@ -114,6 +144,8 @@ namespace HWK4.Repositories
 
         /// <summary>
         /// It provides the analysis data, mean , median , max and min
+<<<<<<< HEAD
+=======
 
         public bool DeleteBills(Bills bill)
         {
@@ -129,6 +161,7 @@ namespace HWK4.Repositories
         /// Delete bill
 
 
+>>>>>>> b776ae7e5ece7d902e3d1fa7bc92c408f20110c0
         /// </summary>
         /// <returns></returns>
 
@@ -166,6 +199,8 @@ namespace HWK4.Repositories
         /// saves any changes made to the bills repository.
         /// </summary>
         /// <returns></returns>
+<<<<<<< HEAD
+=======
 
 
         } /// <summary>
@@ -174,6 +209,7 @@ namespace HWK4.Repositories
         /// <returns></returns>
 
 
+>>>>>>> b776ae7e5ece7d902e3d1fa7bc92c408f20110c0
         public bool Save()
         {
             int saved = _context.SaveChanges();

@@ -2,7 +2,10 @@
 
 namespace HWK4.Models
 {
+<<<<<<< HEAD
+=======
 
+>>>>>>> b776ae7e5ece7d902e3d1fa7bc92c408f20110c0
         public class BillsModel
     {
             [Key] //Month is the primary key
@@ -10,6 +13,8 @@ namespace HWK4.Models
             public int Expense { get; set; }
 
         public BillsModel(string month = "", int expense=0)
+<<<<<<< HEAD
+=======
 
         public class Bills
         {
@@ -19,6 +24,7 @@ namespace HWK4.Models
 
         public Bills(string month, int expense)
 
+>>>>>>> b776ae7e5ece7d902e3d1fa7bc92c408f20110c0
             {
                 Month = month;
                 Expense = expense;
